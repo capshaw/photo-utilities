@@ -48,7 +48,7 @@ class PhotoOrganizerTool:
         for filename in os.listdir(self.args.path_from):
 
             input_file_path = os.path.join(self.args.path_from, filename)
-            if not self._is_file_whitelisted(filename):
+            if not self._is_file_allowlisted(filename):
                 self._log(f'Skipping non-allowlisted file {input_file_path}')
                 continue
 
@@ -103,7 +103,7 @@ class PhotoOrganizerTool:
             else:
                 self._log(f'Skipping {destination_path}. File already exists.')
 
-    def _is_file_whitelisted(self, filename: str):
+    def _is_file_allowlisted(self, filename: str):
         """
         Returns True if the specified filename has a suffix in the tool's allowlist, False otherwise.
         """
